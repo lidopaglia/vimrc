@@ -54,8 +54,8 @@ set encoding=utf-8
 scriptencoding utf-8
 set nocompatible
 set background=dark
-"set termguicolors
 
+let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 syntax on
 filetype plugin indent on
