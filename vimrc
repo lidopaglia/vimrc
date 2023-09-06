@@ -54,7 +54,7 @@ set encoding=utf-8
 scriptencoding utf-8
 set nocompatible
 set background=dark
-#set termguicolors
+"set termguicolors
 
 colorscheme gruvbox
 syntax on
