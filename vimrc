@@ -109,8 +109,8 @@ set sidescrolloff=20
 set sidescroll=1
 
 " create undodir path
-if !isdirectory($XDG_CACHE_HOME."/vim/undo")
-    call mkdir($XDG_CACHE_HOME."/vim/undo", 'p', 0700)
+if !isdirectory($HOME."/.cache/vim/undo")
+    call mkdir($HOME."/.cache/vim/undo", 'p', 0700)
 endif
 
 " if supported set location and enable
