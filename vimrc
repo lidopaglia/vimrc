@@ -11,6 +11,9 @@
 " PLUGINS
 " -----------------------------------------------------------------------------
 
+" disable before loading vim-polyglot
+let g:polyglot_disabled = ['markdown']
+
 " Install vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -sSfLo ~/.vim/autoload/plug.vim --create-dirs
@@ -34,6 +37,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
+Plug 'sheerun/vim-polyglot'
 Plug 'Yggdroot/indentLine'
 call plug#end()
 
