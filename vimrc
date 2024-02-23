@@ -33,8 +33,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 Plug 'sheerun/vim-polyglot'
@@ -237,3 +237,28 @@ if has('autocmd')
   augroup END
 
 endif
+" -----------------------------------------------------------------------------
+" PLUGIN SETTINGS (fzf)
+" -----------------------------------------------------------------------------
+
+let g:fzf_colors = {
+\ 'fg':      ['fg', 'Normal'],
+\ 'bg':      ['bg', 'Normal'],
+\ 'hl':      ['fg', 'Comment'],
+\ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+\ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+\ 'hl+':     ['fg', 'Statement'],
+\ 'info':    ['fg', 'PreProc'],
+\ 'border':  ['fg', 'Ignore'],
+\ 'prompt':  ['fg', 'Conditional'],
+\ 'pointer': ['fg', 'Exception'],
+\ 'marker':  ['fg', 'Keyword'],
+\ 'spinner': ['fg', 'Label'],
+\ 'header':  ['fg', 'Comment'] }
+
+" Launch fzf with CTRL+P.
+nnoremap <silent> <C-p> :GFiles -m<CR>
+
+" Map a few common things to do with FZF.
+nnoremap <silent> <Leader><Enter> :Buffers<CR>
+nnoremap <silent> <Leader>l :Lines<CR>
