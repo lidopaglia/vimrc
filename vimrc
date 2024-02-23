@@ -191,52 +191,25 @@ noremap <silent> <leader>h :set hlsearch! hlsearch?<CR>
 " make the current file executable
 nnoremap <silent> <leader>x <cmd>!chmod +x %<CR>
 
-" toggle Goyo
-nnoremap <leader>g :Goyo<CR>
 
 " Save file as sudo on files that require root permission
 cabbrev w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 
+
+
 " -----------------------------------------------------------------------------
-" FUNCTIONS
+" AUTOCOMMANDS
 " -----------------------------------------------------------------------------
-
-function! GitBranch()
-  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-endfunction
-
-function! StatuslineGit()
-  let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-endfunction
-
-" https://github.com/junegunn/goyo.vim/issues/36
-function! s:auto_goyo()
-  if &ft == 'markdown'
-    Goyo 80
-  elseif exists('#goyo')
-    let bufnr = bufnr('%')
-    Goyo!
-    execute 'b '.bufnr
-  endif
-endfunction
 
 if has('autocmd')
 
   " disable automatic commenting on newline
   autocmd FileType * setlocal formatoptions-=cro
 
-  " Set Limelight to activate/deactivate when Goyo opens/closes
-  autocmd! User GoyoEnter Limelight
-  autocmd! User GoyoLeave Limelight!
-
-  augroup goyo_markdown
-      autocmd!
-      autocmd BufNewFile,BufRead * call s:auto_goyo()
-  augroup END
-
 endif
+
+
 " -----------------------------------------------------------------------------
 " PLUGIN SETTINGS (fzf)
 " -----------------------------------------------------------------------------
